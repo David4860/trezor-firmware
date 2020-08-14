@@ -176,7 +176,9 @@ def test_set_pin_to_wipe_code(client):
     assert isinstance(resp, messages.Address)
 
 
-@pytest.mark.parametrize("invalid_wipe_code", ("1204", "", "1234567891"))
+@pytest.mark.parametrize(
+    "invalid_wipe_code", ("1204", "", "12345678912345678912345678912345678912345")
+)
 def test_set_wipe_code_invalid(client, invalid_wipe_code):
     # Let's set the wipe code
     ret = client.call_raw(messages.ChangeWipeCode())

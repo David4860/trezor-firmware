@@ -167,7 +167,9 @@ def test_change_mismatch(client):
     _check_pin(client, PIN4)
 
 
-@pytest.mark.parametrize("invalid_pin", ("1204", "", "1234567891"))
+@pytest.mark.parametrize(
+    "invalid_pin", ("1204", "", "12345678912345678912345678912345678912345")
+)
 def test_set_invalid(client, invalid_pin):
     assert client.features.pin_protection is False
 
